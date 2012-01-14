@@ -1,5 +1,22 @@
+/* Author: Chris Fietkiewicz, Ph.D., Case Western Reserve University
+   Contact: chris.fietkiewicz@case.edu
 
-setStop = 200 // Simulation length in msec
+   Description: Reproduces spike raster used for Figure 11 from "Drive latencies 
+    in hypoglossal motoneurons indicate developmental change in the brainstem 
+    respiratory network" by C Fietkiewicz, KA Loparo, and CG Wilson in Journal of
+    Neural Engineering, 2011 J. Neural Eng. 8:065011. Current clamp
+    and voltage clamp traces seen in Figure 12 can be generated and saved to files
+    by setting 'recordMode' to either 1 or 2, respectively (see variable description below).
+    The raster plot shows 30 cells comprised of the following groups:
+    pacemakers (1 - 14), premotoneurons/intermediate (15 - 28), and motoneurons (29 - 30).
+
+   Acknowledgement: Based on source code developed by Timothy Anderson from T Anderson, 
+    R Foglyano, and C Wilson, 2009. Altered respiratory rhythm in a preBotzinger
+    complex model due to addition of low-threshold, non-inactivating K+ current and tonic
+    input. BMC Neuroscience, 10, p.P323.
+*/
+
+setStop = 11500 // Simulation length in msec
 strdef fileSuffix
 fileSuffix = "figure11" // Used for output files
 PMtoICweight1 = 0.003 // Synapse weight from pacemakers (PM) to intermediate cells (IC) (cluster #1)
@@ -294,7 +311,7 @@ proc randomizeCells () {
 		PM[i].soma gmax_K_Leak = r
 		r2 = r
 
-		// Set gmax_nap
+		// Set gmax_K_leak
 		gLimitFactor = 0.15 // Factor for computing hard limit (+/-)
 		gMean = 0.00009
 		randomCells.uniform(gMean - gMean * gLimitFactor, gMean + gMean * gLimitFactor) // Set distribution

@@ -4,7 +4,7 @@
    Description: Reproduces spike raster used for Figure 13 from "Drive latencies 
     in hypoglossal motoneurons indicate developmental change in the brainstem 
     respiratory network" by C Fietkiewicz, KA Loparo, and CG Wilson in Journal of
-    Neural Engineering, ???. Current clamp
+    Neural Engineering, 2011 J. Neural Eng. 8:065011. Current clamp
     and voltage clamp traces seen in Figure 14 can be generated and saved to files
     by setting 'recordMode' to either 1 or 2, respectively (see variable description below).
     The raster plot shows 30 cells comprised of the following groups:
@@ -20,7 +20,7 @@
     input. BMC Neuroscience, 10, p.P323.
 */
 
-setStop = 200 // Simulation length in msec
+setStop = 11000 // Simulation length in msec
 strdef fileSuffix
 fileSuffix = "figure13" // Used for output files
 PMtoICweight1 = 0.003 // Synapse weight from pacemakers (PM) to intermediate cells (IC) (cluster #1)
